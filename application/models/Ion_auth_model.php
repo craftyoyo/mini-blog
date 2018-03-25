@@ -980,6 +980,8 @@ class Ion_auth_model extends CI_Model
 			}
 		}
 
+        $this->db->insert('settings', array('user_id' => $id));
+
 		$this->trigger_events('post_register');
 
 		return (isset($id)) ? $id : FALSE;
