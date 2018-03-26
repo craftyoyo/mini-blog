@@ -39,6 +39,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
+                                <a class="dropdown-item" href="<?php echo base_url('blog/create') ?>">New Post</a>
                                 <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Settings</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>

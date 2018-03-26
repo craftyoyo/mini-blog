@@ -7,6 +7,9 @@ function bootstrap_alert($message, $type = 'danger')
 }
 
 function console_log( $data ){
+    if(gettype($data) == 'object') {
+        $data = print_r($data, true);
+    }
     echo '<script>';
     echo 'console.log('. json_encode( $data ) .')';
     echo '</script>';

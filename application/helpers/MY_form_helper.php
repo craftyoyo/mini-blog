@@ -37,7 +37,12 @@ function bootstrap_input($name, $label = '', $type = 'text', $value = '')
         }
     }
     $html = "<label for=\"$name\">$label</label>";
-    $html .= "<input type=\"$type\" class=\"form-control $valid_class\" id=\"$name\" name=\"$name\" value=\"$value\">";
+    if($type == 'textarea') {
+        $html .= "<textarea class=\"form-control $valid_class\" id=\"$name\" name=\"$name\" rows=\"5\">$value</textarea>";
+
+    } else {
+        $html .= "<input type=\"$type\" class=\"form-control $valid_class\" id=\"$name\" name=\"$name\" value=\"$value\">";
+    }
     $html .= bootstrap_error($name);
 
     return $html;
