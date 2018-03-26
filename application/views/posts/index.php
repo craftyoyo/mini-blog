@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-xl-12">
 
-        <?php if(!empty($error)): ?>
+        <?php if (!empty($error)): ?>
             <?php echo bootstrap_alert($error) ?>
         <?php endif ?>
         <table class="table">
@@ -19,16 +19,20 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach($posts as $post): ?>
+            <?php foreach ($posts as $post): ?>
                 <tr>
-                    <td><a href="<?php echo base_url("blog/view/{$post->getPostId()}") ?>"><?php echo $post->getTitle() ?></a></td>
+                    <td>
+                        <a href="<?php echo base_url("blog/view/{$post->getPostId()}") ?>"><?php echo $post->getTitle() ?></a>
+                    </td>
                     <td><?php echo $post->getBody() ?></td>
-                    <td><?php echo $post->getDraft() == '1' ? "Yes" : "" ?></td>
+                    <td><?php echo $post->getDraft() == '1' ? "" : "Yes" ?></td>
                     <td><?php echo date('M d, Y h:ia', strtotime($post->getCreated())) ?></td>
                     <td><?php echo date('M d, Y h:ia', strtotime($post->getModified())) ?></td>
                     <td>
                         <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
-                        <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-link">Delete</a>
+                        <?php echo form_open("blog/delete/{$post->getPostId()}") ?>
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        <?php echo form_close() ?>
                     </td>
                 </tr>
             <?php endforeach ?>

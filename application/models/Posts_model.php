@@ -23,6 +23,17 @@
 
             return $post;
         }
+        public function update_post($post_id, $title, $body, $draft)
+        {
+            $this->db->set('title', $title);
+            $this->db->set('body', $body);
+            $this->db->set('draft', $draft ? 'Y' : 'N');
+            $this->db->where('post_id', $post_id);
+            $this->db->update('posts');
+            $post = $this->get_post($post_id);
+
+            return $post;
+        }
 
         public function get_posts($user_id = null)
         {
