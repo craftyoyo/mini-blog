@@ -8,7 +8,7 @@
             <?php echo bootstrap_alert($error) ?>
         <?php endif ?>
 
-        <?php echo form_open("blog/create"); ?>
+        <?php echo form_open("blog/edit/{$post->getPostId()}"); ?>
             <div class="form-group">
                 <?php echo bootstrap_input('title', 'Post Title', null, $post->getTitle()); ?>
             </div>

@@ -23,6 +23,7 @@
 
             return $post;
         }
+
         public function update_post($post_id, $title, $body, $draft)
         {
             $this->db->set('title', $title);
@@ -33,6 +34,12 @@
             $post = $this->get_post($post_id);
 
             return $post;
+        }
+
+        public function delete_post($post_id)
+        {
+            $this->db->where('post_id', $post_id);
+            $this->db->delete('posts');
         }
 
         public function get_posts($user_id = null)

@@ -7,6 +7,7 @@
         <?php if (!empty($error)): ?>
             <?php echo bootstrap_alert($error) ?>
         <?php endif ?>
+        <a href="<?php echo base_url("blog/create") ?>" class="btn btn-primary mb-3">New Post</a>
         <table class="table">
             <thead>
             <tr>
@@ -31,7 +32,7 @@
                     <td>
                         <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
                         <?php echo form_open("blog/delete/{$post->getPostId()}") ?>
-                            <button type="submit" class="btn btn-link">Delete</button>
+                            <input type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete">
                         <?php echo form_close() ?>
                     </td>
                 </tr>
