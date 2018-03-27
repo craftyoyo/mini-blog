@@ -77,7 +77,7 @@
         }
     }
 
-    class Post
+    class Post extends CI_Model
     {
         private $post_id;
         private $user_id;
@@ -131,6 +131,14 @@
         public function getUserId()
         {
             return $this->user_id;
+        }
+
+        /**
+         * @return mixed
+         */
+        public function getUsername()
+        {
+            return $this->users_model->get_user($this->user_id)->getUsername();
         }
 
         /**

@@ -5,6 +5,9 @@
 <div class="row">
     <div class="col-xl-4">
 
+        <?php if ($this->session->flashdata('error')): ?>
+            <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
+        <?php endif ?>
         <?php if(!empty($error)): ?>
             <?php echo bootstrap_alert($error) ?>
         <?php endif ?>

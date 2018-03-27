@@ -30,7 +30,7 @@ function bootstrap_input($name, $label = '', $type = 'text', $value = '')
         $label = ucwords($label);
     }
     $valid_class = is_valid($name);
-    if(!$type == 'password')
+    if($type != 'password')
     {
         if(set_value($name)) {
             $value = set_value($name);

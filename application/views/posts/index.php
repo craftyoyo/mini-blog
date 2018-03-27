@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-xl-12">
 
-        <?php if (!empty($error)): ?>
-            <?php echo bootstrap_alert($error) ?>
+        <?php if ($this->session->flashdata('error')): ?>
+            <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
         <?php endif ?>
         <a href="<?php echo base_url("blog/create") ?>" class="btn btn-primary mb-3">New Post</a>
         <table class="table">
