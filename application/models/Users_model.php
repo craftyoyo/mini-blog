@@ -7,10 +7,28 @@ class Users_model extends CI_Model
     {
         $this->load->model('ion_auth_model');
     }
+
     function get_user($id)
     {
         $query = $this->db->get_where('users', array('id' => $id));
         $row = $query->first_row();
+        $groups = $this->ion_auth_model->get_users_groups($id)->result();
+        $user = new User(
+            $row->id,
+            $row->username,
+            $row->email,
+            $row->first_name,
+            $row->last_name,
+            $groups
+        );
+        return $user;
+    }
+
+    function get_user_by_username($username)
+    {
+        $query = $this->db->get_where('users', array('username' => $username));
+        $row = $query->first_row();
+        $id = $row->id;
         $groups = $this->ion_auth_model->get_users_groups($id)->result();
         $user = new User(
             $row->id,

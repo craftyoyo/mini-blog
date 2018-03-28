@@ -57,9 +57,9 @@ $route['login/?(.*)'] = 'auth/login/$1';
 $route['logout/?(.*)'] = 'auth/logout/$1';
 $route['signup/?(.*)'] = 'auth/signup/$1';
 
-$route['~(.*)/archive'] = 'blog/archive/$1';
-$route['~(.*)/board'] = 'blog/board/$1';
-$route['~(.*)/about'] = 'blog/about/$1';
-$route['~(.*)/page/(.*)'] = 'blog/page/$1/$2';
-$route['~(.*)'] = 'blog/posts/$1';
+$route['~(.*)/archive'] = 'b/archive/$1';
+$route['~(.*)/board'] = 'b/board/$1';
+$route['~(.*)/about'] = 'b/about/$1';
+$route['~(.*)/page/(.*)'] = 'b/page/$1/$2';
+$route['~(.*)'] = 'b/posts/$1';
 

@@ -31,7 +31,7 @@
                     <td><?php echo date('M d, Y h:ia', strtotime($post->getModified())) ?></td>
                     <td>
                         <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
-                        <?php echo form_open("blog/delete/{$post->getPostId()}") ?>
+                        <?php echo form_open("b/delete/{$post->getPostId()}") ?>
                             <input type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete">
                         <?php echo form_close() ?>
                     </td>

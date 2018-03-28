@@ -1,7 +1,7 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Blog extends CI_Controller
+    class B extends CI_Controller
     {
         public function index()
         {
@@ -22,7 +22,7 @@
         {
             if ($post->getUserId() != $this->session->userdata('user_id')) {
                 $this->session->set_flashdata('error', 'You do not have permission to access this post');
-                redirect('blog');
+                redirect('b');
             }
         }
 
@@ -45,7 +45,7 @@
                     $draft = $this->input->post('draft') ? true : false;
                     $post = $this->posts_model->create_post($title, $body, $draft);
 
-                    redirect('blog');
+                    redirect('b');
                 }
             }
             $this->load->view('posts/create');
@@ -64,7 +64,7 @@
                     $draft = $this->input->post('draft') ? true : false;
                     $post = $this->posts_model->update_post($post_id, $title, $body, $draft);
 
-                    redirect('blog');
+                    redirect('b');
                 }
             }
             $this->load->view('posts/edit', compact('post'));
@@ -78,7 +78,7 @@
             if ($this->input->method() == 'post') {
                 $post = $this->posts_model->delete_post($post_id);
             }
-            redirect('blog');
+            redirect('b');
         }
 
         public function posts($user)

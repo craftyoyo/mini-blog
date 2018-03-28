@@ -7,7 +7,7 @@
         <div class="mb-5"><?php echo $post->getBody() ?></div>
 
         <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-primary">Edit</a>
-        <?php echo form_open("blog/delete/{$post->getPostId()}", array('class' => 'd-inline-block')) ?>
+        <?php echo form_open("b/delete/{$post->getPostId()}", array('class' => 'd-inline-block')) ?>
         <input type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete">
         <?php echo form_close() ?>
         <br>
