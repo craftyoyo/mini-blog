@@ -1,16 +1,40 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Blog_model extends CI_Model
+    class Blogs_model extends CI_Model
     {
         public function __construct()
         {
 
         }
 
-        public function get_blog($blog_id)
+        public function get_blog($user_id)
         {
-            $query = $this->db->get_where('blogs', array('blog_id' => $blog_id));
+            $query = $this->db->get_where('blogs', array('user_id' => $user_id));
+            $row = $query->first_row();
+
+            $posts = $this->posts_model->get_posts($row->user_id);
+            //$pages = $this->pages_model->get_pages($row->user_id);
+
+            $blog = new Blog(
+                $row->blog_id,
+                $row->user_id,
+                $row->name,
+                $row->description,
+                $row->created,
+                $row->modified,
+                $posts,
+                null,
+                $row->about,
+                $row->style
+            );
+            return $blog;
+        }
+
+        public function get_blog_by_username($username)
+        {
+            $user = $this->users_model->get_user_by_username($username);
+            $query = $this->db->get_where('blogs', array('user_id' => $user->getId()));
             $row = $query->first_row();
 
             $posts = $this->posts_model->get_posts($row->user_id);
@@ -95,6 +119,14 @@
         /**
          * @return mixed
          */
+        public function getUser()
+        {
+            return $this->users_model->get_user($this->user_id);
+        }
+
+        /**
+         * @return mixed
+         */
         public function getName()
         {
             return $this->name;
@@ -129,7 +161,7 @@
          */
         public function getPosts()
         {
-            return $this->posts;
+            return $this->posts_model->get_posts($this->blog_id);
         }
 
         /**

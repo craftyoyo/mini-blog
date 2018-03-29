@@ -40,6 +40,12 @@ class Users_model extends CI_Model
         );
         return $user;
     }
+
+    function init_user($user)
+    {
+        $this->db->insert('settings', array('user_id' => $user->getId()));
+        $this->db->insert('blogs', array('user_id' => $user->getId()));
+    }
 }
 
 class User

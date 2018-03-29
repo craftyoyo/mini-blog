@@ -10,8 +10,10 @@
         public function create_post($title, $body, $draft)
         {
             $user_id = $this->session->userdata('user_id');
+            $blog = $this->blogs_model->get_blog($user_id);
 
             $data = array(
+                'blog_id' => $blog->getBlogId(),
                 'user_id' => $user_id,
                 'title' => $title,
                 'body' => $body,
@@ -42,13 +44,10 @@
             $this->db->delete('posts');
         }
 
-        public function get_posts($user_id = null)
+        public function get_posts($blog_id)
         {
             $posts = array();
-            if (!$user_id) {
-                $user_id = $this->session->userdata('user_id');
-            }
-            $query = $this->db->get_where('posts', array('user_id' => $user_id));
+            $query = $this->db->get_where('posts', array('blog_id' => $blog_id));
             $rows = $query->result();
             foreach ($rows as $row)
             {

@@ -6,8 +6,8 @@
         public function index()
         {
             $this->check_authenticated();
-            $posts = $this->posts_model->get_posts();
-            $this->load->view('posts/index', compact('posts'));
+            $blog = $this->blogs_model->get_blog($this->session->userdata('user_id'));
+            $this->load->view('posts/index', compact('blog'));
         }
 
         private function check_authenticated()
@@ -81,33 +81,33 @@
             redirect('b');
         }
 
-        public function posts($user)
+        public function posts($username)
         {
-            $posts = $this->posts_model->get_posts();
-            $this->load->view('blog/home', compact('posts'));
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $this->load->view('blog/home', compact('blog'));
         }
 
-        public function archive($user)
+        public function archive($username)
         {
-            console_log($this->router->fetch_method());
-            console_log($user);
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $this->load->view('blog/archive', compact('blog'));
         }
 
-        public function page($user, $page)
+        public function page($username, $page)
         {
-            console_log($this->router->fetch_method());
-            console_log($user);
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $this->load->view('blog/page', compact('blog'));
         }
 
-        public function board($user)
+        public function board($username)
         {
-            console_log($this->router->fetch_method());
-            console_log($user);
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $this->load->view('blog/board', compact('blog'));
         }
 
-        public function about($user)
+        public function about($username)
         {
-            console_log($this->router->fetch_method());
-            console_log($user);
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $this->load->view('blog/about', compact('blog'));
         }
     }
