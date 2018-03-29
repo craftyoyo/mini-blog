@@ -83,8 +83,8 @@
 
         public function posts($user)
         {
-            console_log($this->router->fetch_method());
-            console_log($user);
+            $posts = $this->posts_model->get_posts();
+            $this->load->view('blog/home', compact('posts'));
         }
 
         public function archive($user)
