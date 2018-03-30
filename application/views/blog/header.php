@@ -7,6 +7,28 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<?php if($this->ion_auth->logged_in()): ?>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+        <!-- Navbar content -->
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo $this->session->userdata('username') ?>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
+                <a class="dropdown-item" href="<?php echo base_url('posts') ?>">My Posts</a>
+                <a class="dropdown-item" href="<?php echo base_url('pages') ?>">My Pages</a>
+                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>
+            </div>
+        </li>
+    </ul>
+    </div>
+    </nav>
+<?php endif ?>
 <div class="bg-light">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,6 +46,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo blog_url($blog,'archive') ?>">Archive</a>
                     </li>
+                    <?php foreach($blog->getPages() as $page): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo blog_url($blog,'page/' . $page->getTitle()) ?>"><?php echo $page->getTitle() ?></a>
+                        </li>
+                    <?php endforeach ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo blog_url($blog,'board') ?>">Board</a>
                     </li>
@@ -31,25 +58,6 @@
                         <a class="nav-link" href="<?php echo blog_url($blog,'about') ?>">About</a>
                     </li>
                 </ul>
-                <?php if(!$this->ion_auth->logged_in()): ?>
-                    <a href="<?php echo base_url('login') ?>" class="btn btn-link">Log In</a>
-                    <a href="<?php echo base_url('signup') ?>" class="btn btn-primary">Sign Up</a>
-                <?php else: ?>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo $this->session->userdata('username') ?>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
-                                <a class="dropdown-item" href="<?php echo base_url('b/create') ?>">New Post</a>
-                                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                <?php endif ?>
             </div>
         </nav>
     </div>

@@ -7,7 +7,7 @@
         <?php if ($this->session->flashdata('error')): ?>
             <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
         <?php endif ?>
-        <a href="<?php echo base_url("blog/create") ?>" class="btn btn-primary mb-3">New Post</a>
+        <a href="<?php echo base_url("posts/create") ?>" class="btn btn-primary mb-3">New Post</a>
         <table class="table">
             <thead>
             <tr>
@@ -30,8 +30,8 @@
                     <td><?php echo date('M d, Y h:ia', strtotime($post->getCreated())) ?></td>
                     <td><?php echo date('M d, Y h:ia', strtotime($post->getModified())) ?></td>
                     <td>
-                        <a href="<?php echo base_url("blog/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
-                        <?php echo form_open("b/delete/{$post->getPostId()}") ?>
+                        <a href="<?php echo base_url("posts/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
+                        <?php echo form_open("posts/delete/{$post->getPostId()}") ?>
                             <input type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete">
                         <?php echo form_close() ?>
                     </td>

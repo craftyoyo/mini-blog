@@ -169,7 +169,7 @@
          */
         public function getPages()
         {
-            return $this->pages;
+            return $this->pages_model->get_pages($this->blog_id);
         }
 
         /**
