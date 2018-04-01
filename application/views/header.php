@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page Title</title>
+    <title>Churro</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,7 +10,7 @@
 <div class="bg-light">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Churro</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,9 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('pages') ?>">Pages</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('board') ?>">Board</a>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="--><?php //echo base_url('board') ?><!--">Board</a>-->
+<!--                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('settings') ?>">Settings</a>
                     </li>
@@ -45,7 +45,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
-                                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Account Settings</a>
+<!--                                <a class="dropdown-item" href="--><?php //echo base_url('settings') ?><!--">Account Settings</a>-->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>
                             </div>

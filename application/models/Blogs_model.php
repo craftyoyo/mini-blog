@@ -129,7 +129,7 @@
          */
         public function getName()
         {
-            return $this->name;
+            return $this->settings_model->get_setting('name', $this->user_id);
         }
 
         /**

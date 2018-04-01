@@ -15,7 +15,7 @@
         <?php echo form_open("settings"); ?>
             <div class="form-group">
                 <div class="form-group">
-                    <?php echo bootstrap_input('open', null, null, $settings->open); ?>
+                    <?php echo bootstrap_input('name', 'Blog Name', null, $settings->name); ?>
                 </div>
             </div>
         <button type="submit" class="btn btn-primary">Save</button>

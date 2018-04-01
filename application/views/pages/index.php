@@ -12,7 +12,6 @@
             <thead>
             <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Body</th>
                 <th scope="col">Published</th>
                 <th scope="col">Created</th>
                 <th scope="col">Updated</th>
@@ -25,7 +24,6 @@
                     <td>
                         <a href="<?php echo base_url("blog/view/{$page->getPageId()}") ?>"><?php echo $page->getTitle() ?></a>
                     </td>
-                    <td><?php echo $page->getBody() ?></td>
                     <td><?php echo $page->getDraft() == '1' ? "" : "Yes" ?></td>
                     <td><?php echo date('M d, Y h:ia', strtotime($page->getCreated())) ?></td>
                     <td><?php echo date('M d, Y h:ia', strtotime($page->getModified())) ?></td>

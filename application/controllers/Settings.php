@@ -8,7 +8,7 @@ class Settings extends CI_Controller {
         $settings = $this->settings_model->get_settings();
 		if($this->input->method() == 'post')
         {
-            $this->settings_model->set_setting('open', $this->input->post('open'));
+            $this->settings_model->set_setting('name', $this->input->post('name'));
             $success = 'Settings have been saved';
         }
         $this->load->view('settings', compact('settings', 'success'));

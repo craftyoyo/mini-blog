@@ -47,7 +47,9 @@
         public function get_posts($blog_id)
         {
             $posts = array();
-            $query = $this->db->get_where('posts', array('blog_id' => $blog_id));
+            $this->db->where('blog_id', $blog_id);
+            $this->db->order_by('created', 'DESC');
+            $query = $this->db->get('posts');
             $rows = $query->result();
             foreach ($rows as $row)
             {
