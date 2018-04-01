@@ -22,16 +22,10 @@
                         <a class="nav-link" href="<?php echo base_url('/') ?>">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('posts') ?>">Posts</a>
+                        <a class="nav-link" href="<?php echo base_url('features') ?>">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('pages') ?>">Pages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('board') ?>">Board</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('settings') ?>">Settings</a>
+                        <a class="nav-link" href="<?php echo base_url('about') ?>">About</a>
                     </li>
                 </ul>
                 <?php if(!$this->ion_auth->logged_in()): ?>
@@ -45,7 +39,9 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
-                                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Account Settings</a>
+                                <a class="dropdown-item" href="<?php echo base_url('posts') ?>">My Posts</a>
+                                <a class="dropdown-item" href="<?php echo base_url('pages') ?>">My Pages</a>
+                                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Settings</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>
                             </div>

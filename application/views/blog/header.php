@@ -8,26 +8,7 @@
 </head>
 <body>
 <?php if($this->ion_auth->logged_in()): ?>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-        <!-- Navbar content -->
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo $this->session->userdata('username') ?>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<?php echo base_url('~' . $this->session->userdata('username')) ?>">My Blog</a>
-                <a class="dropdown-item" href="<?php echo base_url('posts') ?>">My Posts</a>
-                <a class="dropdown-item" href="<?php echo base_url('pages') ?>">My Pages</a>
-                <a class="dropdown-item" href="<?php echo base_url('settings') ?>">Settings</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo base_url('logout') ?>">Log Out</a>
-            </div>
-        </li>
-    </ul>
-    </div>
-    </nav>
+    <a class="float-right p-3" href="<?php echo base_url('/') ?>">Dashboard</a>
 <?php endif ?>
 <div class="bg-light">
     <div class="container">
