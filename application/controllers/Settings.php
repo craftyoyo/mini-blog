@@ -9,6 +9,8 @@ class Settings extends CI_Controller {
 		if($this->input->method() == 'post')
         {
             $this->settings_model->set_setting('name', $this->input->post('name'));
+            $this->settings_model->set_setting('about', $this->input->post('about'));
+            $this->settings_model->set_setting('css', $this->input->post('css'));
             $success = 'Settings have been saved';
         }
         $this->load->view('settings', compact('settings', 'success'));

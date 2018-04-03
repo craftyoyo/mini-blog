@@ -177,7 +177,7 @@
          */
         public function getAbout()
         {
-            return $this->about;
+            return $this->settings_model->get_setting('about', $this->user_id);
         }
 
         /**
@@ -185,6 +185,6 @@
          */
         public function getStyle()
         {
-            return $this->style;
+            return $this->settings_model->get_setting('css', $this->user_id);
         }
     }
