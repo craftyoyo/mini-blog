@@ -9,6 +9,13 @@
             $this->load->view('blog/home', compact('blog'));
         }
 
+        public function post($username, $post_id)
+        {
+            $blog = $this->blogs_model->get_blog_by_username($username);
+            $post = $this->posts_model->get_post($post_id);
+            $this->load->view('blog/post', compact('blog', 'post'));
+        }
+
         public function archive($username)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
