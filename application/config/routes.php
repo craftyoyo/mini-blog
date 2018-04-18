@@ -62,5 +62,5 @@ $route['~(.*)/board'] = 'b/board/$1';
 $route['~(.*)/about'] = 'b/about/$1';
 $route['~(.*)/page/(.*)'] = 'b/page/$1/$2';
 $route['~(.*)/post/(.*)'] = 'b/post/$1/$2';
-$route['~(.*)'] = 'b/posts/$1';
+$route['~(.*)'] = 'b/home/$1';
 

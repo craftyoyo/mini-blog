@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($blog->getPosts() as $post): ?>
+            <?php foreach ($blog->getPosts(false) as $post): ?>
                 <tr>
                     <td>
                         <a href="<?php echo base_url("blog/view/{$post->getPostId()}") ?>"><?php echo $post->getTitle() ?></a>

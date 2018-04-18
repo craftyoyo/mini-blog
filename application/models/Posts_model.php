@@ -44,13 +44,16 @@
             $this->db->delete('posts');
         }
 
-        public function get_posts($blog_id)
+        public function get_posts($blog_id, $limit = null, $offset = 0)
         {
             $posts = array();
             $this->db->where('blog_id', $blog_id);
+            $this->db->limit($limit);
+            $this->db->offset($offset);
             $this->db->order_by('created', 'DESC');
             $query = $this->db->get('posts');
             $rows = $query->result();
+            console_log($this->db->last_query());
             foreach ($rows as $row)
             {
                 $post = $this->get_post($row->post_id);

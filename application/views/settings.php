@@ -22,6 +22,11 @@
             <?php echo wsywig('about', 'Description', $settings->about) ?>
         </div>
         <div class="form-group">
+            <div class="form-group">
+                <?php echo bootstrap_input('posts_per_page', 'Posts Per Page', null, $settings->posts_per_page); ?>
+            </div>
+        </div>
+        <div class="form-group">
             <?php echo bootstrap_input('css', 'Custom CSS', 'textarea', $settings->css) ?>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>

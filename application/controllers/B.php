@@ -3,10 +3,10 @@
 
     class B extends CI_Controller
     {
-        public function posts($username)
+        public function home($username)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
-            $this->load->view('blog/home', compact('blog'));
+            $this->load->view('blog/home', compact('blog', 'post'));
         }
 
         public function post($username, $post_id)

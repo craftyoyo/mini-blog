@@ -37,7 +37,7 @@
             $query = $this->db->get_where('blogs', array('user_id' => $user->getId()));
             $row = $query->first_row();
 
-            $posts = $this->posts_model->get_posts($row->user_id);
+            $posts = $this->posts_model->get_posts($row->blog_id);
             //$pages = $this->pages_model->get_pages($row->user_id);
 
             $blog = new Blog(
@@ -159,9 +159,27 @@
         /**
          * @return mixed
          */
-        public function getPosts()
+        public function getPosts($pagination = true)
         {
-            return $this->posts_model->get_posts($this->blog_id);
+            if($pagination)
+            {
+                $limit = $this->settings_model->get_setting('posts_per_page', $this->user_id);
+                $offset = ( $this->input->get('page') ?? 1 ) * $limit- $limit;
+            }
+            return $this->posts_model->get_posts($this->blog_id, $limit ?? null, $offset ?? 0);
+        }
+
+        public function hasNextPage()
+        {
+            $limit = $this->settings_model->get_setting('posts_per_page', $this->user_id);
+            $offset = ( $this->input->get('page') ?? 1 ) * $limit;
+
+            return $this->posts_model->get_posts($this->blog_id, $limit ?? null, $offset ?? 0);
+        }
+
+        public function hasPreviousPage()
+        {
+            return ( $this->input->get('page') ?? 1 ) > 1;
         }
 
         /**

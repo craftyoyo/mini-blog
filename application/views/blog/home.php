@@ -11,6 +11,12 @@
                 <div class="post-link"><a href="<?php echo blog_url($blog,"post/{$post->getPostId()}") ?>">Read More</a></div>
             </div>
         <?php endforeach ?>
+        <?php if($blog->hasPreviousPage()): ?>
+            <a href="?page=<?php echo ( $this->input->get('page') ?? 1 ) - 1 ?>">Previous</a>
+        <?php endif ?>
+        <?php if($blog->hasNextPage()): ?>
+            <a href="?page=<?php echo ( $this->input->get('page') ?? 1 ) + 1 ?>">Next</a>
+        <?php endif ?>
     </div>
 </div>
 
