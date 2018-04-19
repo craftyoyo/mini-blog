@@ -1,43 +1,42 @@
 <?php $this->load->view('header') ?>
-<h1 class="my-5">New Post</h1>
-
+<div class="page-header">
+    <div class="page-title">Posts</div>
+    <a href="<?php echo base_url("posts/create") ?>" class="btn btn-primary d-block ml-auto">New Post</a>
+</div>
 <div class="row">
-    <div class="col-xl-12">
-
-        <?php if ($this->session->flashdata('error')): ?>
-            <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
-        <?php endif ?>
-        <a href="<?php echo base_url("posts/create") ?>" class="btn btn-primary mb-3">New Post</a>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Published</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
-                <th scope="col">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($blog->getPosts(false) as $post): ?>
-                <tr>
-                    <td>
-                        <a href="<?php echo base_url("blog/view/{$post->getPostId()}") ?>"><?php echo $post->getTitle() ?></a>
-                    </td>
-                    <td><?php echo $post->getDraft() == '1' ? "" : "Yes" ?></td>
-                    <td><?php echo date('M d, Y h:ia', strtotime($post->getCreated())) ?></td>
-                    <td><?php echo date('M d, Y h:ia', strtotime($post->getModified())) ?></td>
-                    <td>
-                        <a href="<?php echo base_url("posts/edit/{$post->getPostId()}") ?>" class="btn btn-link">Edit</a>
-                        <?php echo form_open("posts/delete/{$post->getPostId()}") ?>
-                            <input type="submit" class="btn btn-link" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete">
-                        <?php echo form_close() ?>
-                    </td>
-                </tr>
-            <?php endforeach ?>
-            </tbody>
-        </table>
-
+    <div class="col">
+        <div class="card">
+                <?php if ($this->session->flashdata('error')): ?>
+                    <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
+                <?php endif ?>
+                <table class="table card-table table-striped table-vcenter">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Published</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th width="100">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($blog->getPosts(false) as $post): ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo base_url("blog/view/{$post->getPostId()}") ?>"><?php echo $post->getTitle() ?></a>
+                            </td>
+                            <td><?php echo $post->getDraft() == '1' ? "" : "Yes" ?></td>
+                            <td><?php echo date('M d, Y h:ia', strtotime($post->getCreated())) ?></td>
+                            <td><?php echo date('M d, Y h:ia', strtotime($post->getModified())) ?></td>
+                            <td>
+                                <a href="<?php echo base_url("posts/edit/{$post->getPostId()}") ?>" class="btn btn-secondary btn-sm">Edit</a>
+                                <form class="d-inline" action="<?php echo base_url("posts/delete/{$post->getPostId()}") ?>" method="post" accept-charset="utf-8"><input type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure you want to delete the post titled &quot;<?php echo $post->getTitle() ?>&quot;?')" value="Delete"></form>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+        </div>
     </div>
 </div>
 
