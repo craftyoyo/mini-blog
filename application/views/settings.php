@@ -19,6 +19,11 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="form-group">
+                <?php echo bootstrap_input('avatar', 'Avatar Image URL', null, $settings->avatar); ?>
+            </div>
+        </div>
+        <div class="form-group">
             <?php echo wsywig('about', 'Description', $settings->about) ?>
         </div>
         <div class="form-group">

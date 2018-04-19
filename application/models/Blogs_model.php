@@ -203,6 +203,11 @@
             return $this->settings_model->get_setting('about', $this->user_id);
         }
 
+        public function getAvatar()
+        {
+            return $this->settings_model->get_setting('avatar', $this->user_id);
+        }
+
         /**
          * @return mixed
          */

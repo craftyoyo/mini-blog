@@ -11,6 +11,7 @@ class Settings extends CI_Controller {
             $this->settings_model->set_setting('name', $this->input->post('name'));
             $this->settings_model->set_setting('about', $this->input->post('about'));
             $this->settings_model->set_setting('css', $this->input->post('css'));
+            $this->settings_model->set_setting('avatar', $this->input->post('avatar'));
             $this->settings_model->set_setting('posts_per_page', $this->input->post('posts_per_page'));
             $success = 'Settings have been saved';
         }

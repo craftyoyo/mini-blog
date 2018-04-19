@@ -38,9 +38,9 @@
 <!--                    <li class="nav-item">-->
 <!--                        <a class="nav-link" href="--><?php //echo blog_url($blog,'board') ?><!--">Board</a>-->
 <!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo blog_url($blog,'about') ?><!--">About</a>-->
-<!--                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo blog_url($blog,'about') ?>">About</a>
+                    </li>
                 </ul>
             </div>
         </nav>
