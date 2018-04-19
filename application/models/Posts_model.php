@@ -79,6 +79,28 @@
             );
             return $post;
         }
+
+        public function get_archive($blog_id)
+        {
+            $archive = array();
+            $this->db->select('created, title, post_id');
+            $this->db->order_by('created', 'desc');
+            $query = $this->db->get('posts');
+
+            foreach ($query->result() as $post) {
+                console_log(date('Y', strtotime($post->created)));
+                $year = date('Y', strtotime($post->created));
+                $month = date('M', strtotime($post->created));
+                if(empty($archive[$year])) {
+                    $archive[$year] = array();
+                }
+                if(empty($archive[$month])) {
+                    $archive[$year][$month] = array();
+                }
+                $archive[$year][$month][] = array('post_id' => $post->post_id, 'title' => $post->title);
+            }
+            return $archive;
+        }
     }
 
     class Post extends CI_Model

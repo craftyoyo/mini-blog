@@ -132,6 +132,11 @@
             return $this->settings_model->get_setting('name', $this->user_id);
         }
 
+        public function getArchive()
+        {
+            return $this->posts_model->get_archive($this->blog_id);
+        }
+
         /**
          * @return mixed
          */

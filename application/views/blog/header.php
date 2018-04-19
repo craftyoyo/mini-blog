@@ -27,9 +27,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="<?php echo blog_url($blog,'') ?>">Home <span class="sr-only">(current)</span></a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="--><?php //echo blog_url($blog,'archive') ?><!--">Archive</a>-->
-<!--                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo blog_url($blog,'archive') ?>">Archive</a>
+                    </li>
                     <?php foreach($blog->getPages() as $page): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo blog_url($blog,'page/' . $page->getTitle()) ?>"><?php echo $page->getTitle() ?></a>
