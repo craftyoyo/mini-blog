@@ -6,9 +6,11 @@
                 <h2><?php echo $post->getTitle() ?></h2>
                 <div class="post-date">Posted <?php echo date('M j, Y \a\t g:ma', strtotime($post->getCreated())) ?></div>
                 <div class="post-content">
-                    <?php echo $post->getBody() ?>
+                    <?php echo $post->getBodyPreview() ?>
                 </div>
-                <div class="post-link"><a href="<?php echo blog_url($blog,"post/{$post->getPostId()}") ?>">Read More</a></div>
+                <?php if($post->isBodyOverLimit()): ?>
+                    <div class="post-link"><a href="<?php echo blog_url($blog,"post/{$post->getPostId()}") ?>">Read More</a></div>
+                <?php endif ?>
             </div>
         <?php endforeach ?>
         <?php if($blog->hasPreviousPage()): ?>

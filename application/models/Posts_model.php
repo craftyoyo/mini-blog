@@ -161,6 +161,23 @@
             return $this->body;
         }
 
+        public function getBodyPreview()
+        {
+            $body = $this->body;
+            if( $this->isBodyOverLimit() ) {
+                $body = substr( $this->body, 0, 700 );
+                $body = preg_replace('/ (?:.(?! ))+$/', ' ...', $body);
+                $tidy = new tidy();
+                $body = $tidy->repairString($body);
+            }
+            return $body;
+        }
+
+        public function isBodyOverLimit()
+        {
+            return strlen( $this->body ) > 700;
+        }
+
         /**
          * @return mixed
          */
