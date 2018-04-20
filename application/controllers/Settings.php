@@ -5,6 +5,8 @@ class Settings extends CI_Controller {
 
 	public function index()
 	{
+        $user_id = $this->session->userdata('user_id');
+        $blog = $this->blogs_model->get_blog($user_id);
         $settings = $this->settings_model->get_settings();
 		if($this->input->method() == 'post')
         {
@@ -15,6 +17,6 @@ class Settings extends CI_Controller {
             $this->settings_model->set_setting('posts_per_page', $this->input->post('posts_per_page'));
             $success = 'Settings have been saved';
         }
-        $this->load->view('settings', compact('settings', 'success'));
+        $this->load->view('settings', compact('settings', 'success', 'blog'));
 	}
 }

@@ -1,45 +1,77 @@
-<?php $this->load->view('header') ?>
-<h1 class="my-5">Log In</h1>
-
-
-<div class="row">
-    <div class="col-xl-4">
-
-        <?php if ($this->session->flashdata('error')): ?>
-            <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
-        <?php endif ?>
-        <?php if(!empty($error)): ?>
-            <?php echo bootstrap_alert($error) ?>
-        <?php endif ?>
-        <?php if(!empty($success)): ?>
-            <?php echo bootstrap_alert($success, 'success') ?>
-        <?php endif ?>
-
-        <?php echo form_open("auth/login"); ?>
-            <div class="form-group">
-                <div class="form-group">
-                    <?php echo bootstrap_input('username'); ?>
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Language" content="en" />
+        <meta name="msapplication-TileColor" content="#2d89ef">
+        <meta name="theme-color" content="#4188c9">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+        <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+        <title>Login - tabler.github.io - a responsive, flat and full featured admin template</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+        <link href="<?php echo base_url() ?>assets/css/dashboard.css" rel="stylesheet" />
+    </head>
+    <body class="">
+        <div class="page">
+            <div class="page-single">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-login mx-auto">
+                            <div class="text-center mb-6">
+                                <img src="./assets/brand/tabler.svg" class="h-6" alt="">
+                            </div>
+                            <form class="card" action="" method="post">
+                            <div class="card-body p-6">
+                                <div class="card-title">Login to your account</div>
+                                <?php if ($this->session->flashdata('error')): ?>
+                                <?php echo bootstrap_alert($this->session->flashdata('error')) ?>
+                                <?php endif ?>
+                                <?php if(!empty($error)): ?>
+                                <?php echo bootstrap_alert($error) ?>
+                                <?php endif ?>
+                                <?php if(!empty($success)): ?>
+                                <?php echo bootstrap_alert($success, 'success') ?>
+                                <?php endif ?>
+                                <?php echo form_open("auth/login"); ?>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <?php echo bootstrap_input('username'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <!-- <a href="<?php echo base_url('auth/forgot_password') ?>" class="float-right small">Forgot Password</a> -->
+                                        <?php echo bootstrap_input('password', null, 'password'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="remember" />
+                                        <span class="custom-control-label">Remember me</span>
+                                    </label>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                            </div>
+                            <div class="text-center text-muted">
+                                Don't have account yet? <a href="<?php echo base_url('auth/signup') ?>">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-group">
-                    <a href="<?php echo base_url('auth/forgot_password') ?>" class="float-right small">Forgot Password</a>
-                    <?php echo bootstrap_input('password', null, 'password'); ?>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                    <label class="form-check-label" for="remember">
-                        Remember me
-                    </label>
-                </div>
-            </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-        <a href="<?php echo base_url('auth/signup') ?>" class="btn btn-link">Sign Up</a>
+        </div>
+    </body>
+</html>
 
-        <?php echo form_close(); ?>
-    </div>
-</div>
-
-<?php $this->load->view('footer') ?>

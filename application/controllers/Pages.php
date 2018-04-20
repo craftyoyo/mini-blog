@@ -28,13 +28,19 @@
 
         public function view($page_id)
         {
+            $user_id = $this->session->userdata('user_id');
+            $blog = $this->blogs_model->get_blog($user_id);
+
             $page = $this->pages_model->get_page($page_id);
             $this->check_authorized($page);
-            $this->load->view('pages/view', compact('page'));
+            $this->load->view('pages/view', compact('page', 'blog'));
         }
 
         public function create()
         {
+            $user_id = $this->session->userdata('user_id');
+            $blog = $this->blogs_model->get_blog($user_id);
+
             $this->check_authenticated();
             if ($this->input->method() == 'post') {
                 $this->form_validation->set_rules('title', 'Post Title', 'required');
@@ -49,11 +55,14 @@
                     redirect('pages');
                 }
             }
-            $this->load->view('pages/create');
+            $this->load->view('pages/create', compact('blog'));
         }
 
         public function edit($page_id)
         {
+            $user_id = $this->session->userdata('user_id');
+            $blog = $this->blogs_model->get_blog($user_id);
+
             $page = $this->pages_model->get_page($page_id);
             $this->check_authorized($page);
             if ($this->input->method() == 'post') {
@@ -68,7 +77,7 @@
                     redirect('pages');
                 }
             }
-            $this->load->view('pages/edit', compact('page'));
+            $this->load->view('pages/edit', compact('page', 'blog'));
         }
 
         public function delete($page_id)
