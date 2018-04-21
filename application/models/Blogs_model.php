@@ -137,12 +137,9 @@
             return $this->posts_model->get_archive($this->blog_id);
         }
 
-        /**
-         * @return mixed
-         */
-        public function getDescription()
+        public function getSidebarArchive()
         {
-            return $this->description;
+            return $this->posts_model->get_sidebar_archive($this->blog_id);
         }
 
         /**
@@ -206,6 +203,16 @@
         public function getAvatar()
         {
             return $this->settings_model->get_setting('avatar', $this->user_id);
+        }
+
+        public function getDescription()
+        {
+            return $this->settings_model->get_setting('description', $this->user_id);
+        }
+
+        public function getHeader()
+        {
+            return $this->settings_model->get_setting('header_image', $this->user_id);
         }
 
         /**

@@ -15,7 +15,7 @@
         <link rel="icon" href="<?php echo base_url() ?>favicon.ico" type="image/x-icon"/>
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>favicon.ico" />
         <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-        <title>Empty page - tabler.github.io - a responsive, flat and full featured admin template</title>
+        <title>churro</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
         <link href="<?php echo base_url() ?>assets/css/dashboard.css" rel="stylesheet" />
@@ -26,8 +26,8 @@
             <div class="header py-4">
                 <div class="container">
                     <div class="d-flex">
-                        <a class="header-brand" href="<?php echo base_url() ?>index.html">
-                        <img src="<?php echo base_url() ?>demo/brand/tabler.svg" class="header-brand-img" alt="tabler logo">
+                        <a class="header-brand" href="<?php echo base_url('posts') ?>">
+                        churro
                         </a>
                         <div class="d-flex order-lg-2 ml-auto">
                             <div class="nav-item d-none d-md-flex">

@@ -104,6 +104,27 @@
             }
             return $archive;
         }
+
+        public function get_sidebar_archive($blog_id)
+        {
+            $archive = array();
+            $this->db->select('created');
+            $this->db->order_by('created', 'desc');
+            $query = $this->db->get('posts');
+
+            foreach ($query->result() as $post) {
+                $key = date('YM', strtotime($post->created));
+                if(empty($archive[$key])) {
+                    $archive[$key] = array(
+                        'monthyear' => date('F Y', strtotime($post->created)),
+                        'postcount' => 1
+                    );
+                } else {
+                    $archive[$key]['postcount']++;
+                }
+            }
+            return $archive;
+        }
     }
 
     class Post extends CI_Model

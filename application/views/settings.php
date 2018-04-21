@@ -21,11 +21,21 @@
                 </div>
                 <div class="form-group">
                     <div class="form-group">
+                        <?php echo bootstrap_input('description', 'Blog Description', null, $settings->description); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <?php echo bootstrap_input('header_image', 'Header Image URL', null, $settings->header_image); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
                         <?php echo bootstrap_input('avatar', 'Avatar Image URL', null, $settings->avatar); ?>
                     </div>
                 </div>
                 <div class="form-group">
-                    <?php echo wsywig('about', 'Description', $settings->about) ?>
+                    <?php echo wsywig('about', 'About Page', $settings->about) ?>
                 </div>
                 <div class="form-group">
                     <div class="form-group">

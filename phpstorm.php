@@ -69,6 +69,7 @@
      * @property Settings_model     $settings_model
      * @property Users_model        $users_model
      * @property Posts_model        $posts_model
+     * @property Blogs_model        $blogs_model
      */
     class CI_Controller {
 
