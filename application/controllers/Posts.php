@@ -81,7 +81,6 @@
 
         public function delete($post_id)
         {
-            console_log($post_id);
             $post = $this->posts_model->get_post($post_id);
             $this->check_authorized($post);
             if ($this->input->method() == 'post') {

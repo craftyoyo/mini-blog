@@ -4,8 +4,7 @@
 	<meta class="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>churro - free blog service</title>
-	<!-- Don't forget to add your metadata here -->
-	<link rel='stylesheet' href='css/style.min.css' />
+	<link rel='stylesheet' href='css/style.css' />
 </head>
 <body>
 	<!-- Hero(extended) navbar -->
@@ -13,7 +12,7 @@
 		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">
-				<a href="index.html" class="navbar__logo">churro</a>
+				<a href="index.html" class="navbar__logo"><img class="logo" src="<?php echo base_url('images/light_logo.png') ?>" alt="">churro</a>
 				<nav class="navbar__menu">
 					<ul>
                         <?php if ($this->ion_auth->logged_in()): ?>

@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="d-flex">
                         <a class="header-brand" href="<?php echo base_url('posts') ?>">
-                        churro
+                            <img class="logo mr-1" src="<?php echo base_url('images/dark_logo.png') ?>" alt="">churro
                         </a>
                         <div class="d-flex order-lg-2 ml-auto">
                             <div class="nav-item d-none d-md-flex">
@@ -57,13 +57,13 @@
                         <div class="col-lg order-lg-first">
                             <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('posts') ?>">Posts</a>
+                                    <a class="nav-link" href="<?php echo base_url('posts') ?>"><i class="fe fe-edit"></i>Posts</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('pages') ?>">Pages</a>
+                                    <a class="nav-link" href="<?php echo base_url('pages') ?>"><i class="fe fe-file-text"></i>Pages</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('settings') ?>">Settings</a>
+                                    <a class="nav-link" href="<?php echo base_url('settings') ?>"><i class="fe fe-settings"></i>Settings</a>
                                 </li>
                             </ul>
                         </div>

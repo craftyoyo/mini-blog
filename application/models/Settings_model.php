@@ -22,7 +22,6 @@
                 $id = $this->session->userdata('user_id');
             }
             $query = $this->db->get_where('settings', array('user_id' => $id));
-            console_log($this->db->last_query());
             return $query->first_row();
         }
 

@@ -14,16 +14,16 @@
                 <tr>
                     <th>Title</th>
                     <th class="text-center">Published</th>
-                    <th width="100">Created</th>
-                    <th width="100">Updated</th>
-                    <th width="100">Actions</th>
+                    <th width="120">Created</th>
+                    <th width="120">Updated</th>
+                    <th width="150">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($blog->getPages() as $page): ?>
                     <tr>
                         <td>
-                            <a href="<?php echo base_url("blog/view/{$page->getPageId()}") ?>"><?php echo $page->getTitle() ?></a>
+                            <a href="<?php echo blog_url($blog, 'page/' . $page->getPageId()) ?>" target="_blank"><?php echo $page->getTitle() ?></a>
                         </td>
                         <td class="text-center"><?php echo $page->getDraft() == '1' ? "No" : "Yes" ?></td>
                         <td><?php echo date('M d, Y', strtotime($page->getCreated())) ?></td>

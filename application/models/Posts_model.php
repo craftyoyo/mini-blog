@@ -56,7 +56,6 @@
             $this->db->order_by('created', 'DESC');
             $query = $this->db->get('posts');
             $rows = $query->result();
-            console_log($this->db->last_query());
             foreach ($rows as $row)
             {
                 $post = $this->get_post($row->post_id);
@@ -92,7 +91,6 @@
             $query = $this->db->get('posts');
 
             foreach ($query->result() as $post) {
-                console_log(date('Y', strtotime($post->created)));
                 $year = date('Y', strtotime($post->created));
                 $month = date('M', strtotime($post->created));
                 if(empty($archive[$year])) {

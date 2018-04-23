@@ -22,10 +22,10 @@
             $this->load->view('blog/archive', compact('blog'));
         }
 
-        public function page($username, $pageTitle)
+        public function page($username, $page_id)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
-            $page = $this->pages_model->get_page_by_title($blog, $pageTitle);
+            $page = $this->pages_model->get_page($page_id);
             $this->load->view('blog/page', compact('blog', 'page'));
         }
 

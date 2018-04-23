@@ -49,7 +49,6 @@
                     $title = $this->input->post('title');
                     $body = $this->input->post('body');
                     $draft = $this->input->post('draft') ? true : false;
-                    console_log($title);
                     $page = $this->pages_model->create_page($title, $body, $draft);
 
                     redirect('pages');
@@ -82,7 +81,6 @@
 
         public function delete($page_id)
         {
-            console_log($page_id);
             $page = $this->pages_model->get_page($page_id);
             $this->check_authorized($page);
             if ($this->input->method() == 'post') {
