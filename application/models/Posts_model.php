@@ -87,6 +87,7 @@
         {
             $archive = array();
             $this->db->select('created, title, post_id');
+            $this->db->where('draft', 'N');
             $this->db->order_by('created', 'desc');
             $query = $this->db->get('posts');
 
@@ -109,6 +110,7 @@
         {
             $archive = array();
             $this->db->select('created');
+            $this->db->where('draft', 'N');
             $this->db->order_by('created', 'desc');
             $query = $this->db->get('posts');
 

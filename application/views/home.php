@@ -3,7 +3,7 @@
 <head>
 	<meta class="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Evie by unDraw</title>
+	<title>churro - free blog service</title>
 	<!-- Don't forget to add your metadata here -->
 	<link rel='stylesheet' href='css/style.min.css' />
 </head>
@@ -13,11 +13,15 @@
 		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">
-				<a href="index.html" class="navbar__logo">Logo</a>
+				<a href="index.html" class="navbar__logo">churro</a>
 				<nav class="navbar__menu">
 					<ul>
-						<li><a href="#">Option</a></li>
-						<li><a href="#">Option 2</a></li>
+                        <?php if ($this->ion_auth->logged_in()): ?>
+                            <li><a href="<?php echo base_url('posts') ?>">Admin</a></li>
+                        <?php else: ?>
+                            <li><a href="<?php echo base_url('signup') ?>">Sign Up</a></li>
+                            <li><a href="<?php echo base_url('login') ?>">Log In</a></li>
+                        <?php endif ?>
 					</ul>
 				</nav>
 				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
@@ -32,10 +36,10 @@
 			<div class="container">
 				<div class="hero__content">
 					<div class="hero__content__inner" id='navConverter'>
-						<h1 class="hero__title">A production-ready theme for your projects</h1>
-						<p class="hero__text">Evie is an MIT licensed template bundled with a minimal style guide to build websites faster. It is extemely lightweight, customizable and works perfectly on modern browsers.</p>
-						<a href="#" class="button button__accent">Download Evie</a>
-						<a href="#" class="button hero__button">Learn more</a>
+						<h1 class="hero__title">Customizeable free blog service</h1>
+						<p class="hero__text">Churro is an open-source blog and home page service where you can create custom pages and completely customize the CSS - all for free.</p>
+						<a href="<?php echo base_url('signup') ?>" class="button button__accent">Get Started</a>
+						<a href="<?php echo base_url('~tom3') ?>" target="_blank" class="button hero__button">View demo</a>
 					</div>
 				</div>
 			</div>
@@ -49,31 +53,31 @@
 	<!-- Steps -->
 	<div class="steps landing__section">
 		<div class="container">
-			<h2>Who can use Evie?</h2>
-			<p>Here's who we can think of, but surely creative people will surprise us.</p>
+			<h2>Churro's features</h2>
+			<p>Things are kept simple, but there's plenty of ways to make it yours.</p>
 		</div>
 		<div class="container">
 			<div class="steps__inner">
 				<div class="step">
 					<div class="step__media">
-						<img src="./images/undraw_designer.svg" class="step__image">
+                        <img src="./images/undraw_responsive.svg" class="step__image">
 					</div>
-					<h4>Programmers</h4>
-					<p class="step__text">A landing page for your open source projects. Present your solution, easily create docs.</p>
+					<h4>Custom Pages</h4>
+					<p class="step__text">Creating pages on your blog is as easy as creating posts, and will appear in your menu.</p>
 				</div>
 				<div class="step">
 					<div class="step__media">
-						<img src="./images/undraw_responsive.svg" class="step__image">
+                        <img src="./images/undraw_designer.svg" class="step__image">
 					</div>
-					<h4>Designers</h4>
-					<p class="step__text">A website for your own freebies. Let the world download and use your artwork.</p>
+					<h4>Custom CSS</h4>
+					<p class="step__text">For those who want to completely customize the look, you can put in your own CSS code.</p>
 				</div>
 				<div class="step">
 					<div class="step__media">
 						<img src="./images/undraw_creation.svg" class="step__image">
 					</div>
-					<h4>Makers</h4>
-					<p class="step__text">A great starting point for your web application. Focus on your idea and execution.</p>
+					<h4>Simple URL</h4>
+					<p class="step__text">Your new blog URL will be based on your username - e.g. coco.lat/c/~username</p>
 				</div>
 			</div>
 		</div>
@@ -83,37 +87,11 @@
 		<div class="container">
 			<div class="expanded__inner">
 				<div class="expanded__media">
-					<img src="./images/undraw_browser.svg" class="expanded__image">
-				</div>
-				<div class="expanded__content">
-					<h2 class="expanded__title">Natural styling with almost nothing to learn</h2>
-					<p class="expanded__text">Evie brings you the pages you'll need and the structure to create your own, without a learning curve. It is minimal and mostly styles plain elements. There are only a few classes you'll need to know but nothing to disrupt your preferred coding style.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="expanded landing__section">
-		<div class="container">
-			<div class="expanded__inner">
-				<div class="expanded__media">
-					<img src="./images/undraw_frameworks.svg" class="expanded__image">
-				</div>
-				<div class="expanded__content">
-					<h2 class="expanded__title">Framework agnostic. Your front-end setup, your choice.</h2>
-					<p class="expanded__text">Evie has zero dependencies and uses vanilla JavaScript for a few functions with minimal footprint. You can use React, Vue, Angular, jQuery or whatever you prefer.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="expanded landing__section">
-		<div class="container">
-			<div class="expanded__inner">
-				<div class="expanded__media">
 					<img src="./images/together.svg" class="expanded__image">
 				</div>
 				<div class="expanded__content">
-					<h2 class="expanded__title">Ready for production or rapid prototyping</h2>
-					<p class="expanded__text">Landing, authentication and a few other pages to select from, despite the small size. Tested on production at unDraw with amazing speeds and unopinionated on how to structure your project. We really hope you'll find it awesome and useful!</p>
+					<h2 class="expanded__title">Easy-to-use admin interface</h2>
+					<p class="expanded__text">Churro's admin interface makes it easy to create and edit all your posts and pages. The settings page can be used to change your blog properties at any time.</p>
 				</div>
 			</div>
 		</div>
@@ -123,8 +101,8 @@
 		<div class="container">
 			<div class="cta__inner">
 				<h2 class="cta__title">Get started now</h2>
-				<p class="cta__sub cta__sub--center">Grab the production version and begin your project instantly.</p>
-				<a href="#" class="button button__accent">Download Evie</a>
+				<p class="cta__sub cta__sub--center">Sign up and get your blog started for free</p>
+				<a href="<?php echo base_url('signup') ?>" class="button button__accent">Create My Blog</a>
 			</div>
 		</div>
 	</div>
@@ -132,34 +110,16 @@
 	<div class="footer footer--dark">
 		<div class="container">
 			<div class="footer__inner">
-				<a href="index.html" class="footer__textLogo">Evie theme</a>
+				<a href="index.html" class="footer__textLogo">Churro</a>
 				<div class="footer__data">
 					<div class="footer__data__item">
 						<div class="footer__row">
-							Created by <a href="https://twitter.com/ninalimpi" target="_blank" class="footer__link">Katerina Limpitsouni</a>
-						</div>
-						<div class="footer__row">
-						Code/design by <a href="https://twitter.com/anges244" target="_blank" class="footer__link">Aggelos Gesoulis</a>
-						</div>
-					</div>
-					<div class="footer__data__item">
-						<div class="footer__row">Created for <a href="https://undraw.co" target="_blank" class="footer__link">unDraw</a>
-						</div>
-						<div class="footer__row">Special thx to <a href="https://shareboost.co" target="_blank" class="footer__link">ShareBoost</a> for the support
+							Part of the <a href="https://coco.lat" target="_blank" class="footer__link">coco.lat</a> network
 						</div>
 					</div>
 					<div class="footer__data__item">
 					<div class="footer__row">
-						<a href="https://github.com/anges244/evie" target="_blank" class="footer__link">GitHub</a>
-					</div>
-					<div class="footer__row">
-						<a href="https://twitter.com/undraw_co" target="_blank" class="footer__link">Twitter</a>
-					</div>
-					<div class="footer__row">
-						<a href="https://www.facebook.com/undraw.co/" target="_blank" class="footer__link">Facebook</a>
-					</div>
-					<div class="footer__row">
-						<a href="./additional.html" class="footer__link">MIT license</a>
+						<a href="https://github.com/tomual/mini-blog" target="_blank" class="footer__link">Source Code</a>
 					</div>
 				</div>
 			</div>
