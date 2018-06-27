@@ -1,6 +1,8 @@
 # churro
 A blog service written with PHP using CodeIgniter. Users are able to sign up and create their blogs, which can have custom pages and styling.
 
+[View Live](https://coco.lat/c)
+
 ![Blog page](https://raw.githubusercontent.com/tomual/mini-blog/master/images/blog.png)
 
 ## Features
@@ -21,4 +23,4 @@ A blog service written with PHP using CodeIgniter. Users are able to sign up and
 
 ![Admin page](https://raw.githubusercontent.com/tomual/mini-blog/master/images/admin.png)
 
-![Home page](https://raw.githubusercontent.com/tomual/mini-blog/master/images/promotional.jpg)
+![Home page](https://raw.githubusercontent.com/tomual/mini-blog/master/images/home.jpg)
