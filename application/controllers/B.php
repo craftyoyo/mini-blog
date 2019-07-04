@@ -6,7 +6,7 @@
         public function home($username)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
-            $this->load->view('blog/home', compact('blog', 'post'));
+            $this->load->view('blog/home', compact('blog'));
         }
 
         public function post($username, $post_id)

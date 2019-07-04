@@ -522,5 +522,5 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-$config['single_blog_mode'] = TRUE;
+$config['single_blog_mode'] = false;
 $config['single_blog_username'] = 'username';

@@ -20,20 +20,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($blog->getPages() as $page): ?>
+                <?php if ($pages = $blog->getPages()): ?>
+                    <?php foreach ($pages as $page): ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo blog_url($blog, 'page/' . $page->getPageId()) ?>" target="_blank"><?php echo $page->getTitle() ?></a>
+                            </td>
+                            <td class="text-center"><?php echo $page->getDraft() == '1' ? "No" : "Yes" ?></td>
+                            <td><?php echo date('M d, Y', strtotime($page->getCreated())) ?></td>
+                            <td><?php echo date('M d, Y', strtotime($page->getModified())) ?></td>
+                            <td>
+                                <a href="<?php echo base_url("pages/edit/{$page->getPageId()}") ?>" class="btn btn-secondary btn-sm">Edit</a>
+                                <form class="d-inline" action="<?php echo base_url("pages/delete/{$page->getPageId()}") ?>" method="page" accept-charset="utf-8"><input type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure you want to delete the page titled &quot;<?php echo $page->getTitle() ?>&quot;?')" value="Delete"></form>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                <?php else: ?>
                     <tr>
-                        <td>
-                            <a href="<?php echo blog_url($blog, 'page/' . $page->getPageId()) ?>" target="_blank"><?php echo $page->getTitle() ?></a>
-                        </td>
-                        <td class="text-center"><?php echo $page->getDraft() == '1' ? "No" : "Yes" ?></td>
-                        <td><?php echo date('M d, Y', strtotime($page->getCreated())) ?></td>
-                        <td><?php echo date('M d, Y', strtotime($page->getModified())) ?></td>
-                        <td>
-                            <a href="<?php echo base_url("pages/edit/{$page->getPageId()}") ?>" class="btn btn-secondary btn-sm">Edit</a>
-                            <form class="d-inline" action="<?php echo base_url("pages/delete/{$page->getPageId()}") ?>" method="page" accept-charset="utf-8"><input type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure you want to delete the page titled &quot;<?php echo $page->getTitle() ?>&quot;?')" value="Delete"></form>
-                        </td>
+                        <td class="text-muted py-5">You do not have any pages</td>
                     </tr>
-                <?php endforeach ?>
+                <?php endif ?>
                 </tbody>
             </table>
         </div>

@@ -13,11 +13,14 @@ A blog service written with PHP using CodeIgniter. Users are able to sign up and
 * Draft posts
 * Archives
 
+To use this as a single user - Change `single_blog_mode` in `config.php`
+
 ## Installation
 
-1. Create MySQL database and run `sql/tables.sql`
-2. Edit database information in `application/config/database.php`
-3. Make `base_url` the blog URL in `application/config/config.php`
+1. Enable PHP's `tidy` extension
+2. Create MySQL database and run `sql/tables.sql`
+3. Edit database information in `application/config/database.php`
+4. Make `base_url` the blog URL in `application/config/config.php`
 
 ## Screenshots
 

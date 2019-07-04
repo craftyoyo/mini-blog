@@ -176,7 +176,7 @@
             $limit = $this->settings_model->get_setting('posts_per_page', $this->user_id);
             $offset = ( $this->input->get('page') ?? 1 ) * $limit;
 
-            return $this->posts_model->get_posts($this->blog_id, $limit ?? null, $offset ?? 0);
+            return $this->posts_model->get_posts($this->blog_id, $limit, $offset);
         }
 
         public function hasPreviousPage()

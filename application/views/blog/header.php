@@ -23,7 +23,9 @@
     <a class="dashboard-link" href="<?php echo base_url('posts') ?>">Admin</a>
 <?php endif ?>
 <section>
-    <header></header>
+    <a href="<?php echo blog_url($blog, '') ?>">
+        <header></header>
+    </a>
     <nav>
         <br/>
         <h1><a href="<?php echo blog_url($blog, '') ?>"><?php echo $blog->getName() ?></a></h1>

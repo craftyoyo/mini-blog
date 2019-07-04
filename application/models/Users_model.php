@@ -43,7 +43,7 @@ class Users_model extends CI_Model
 
     function init_user($user)
     {
-        $this->db->insert('settings', array('user_id' => $user->getId(), 'name' => 'My Blog'));
+        $this->db->insert('settings', array('user_id' => $user->getId(), 'name' => 'My Blog', 'posts_per_page' => 10, 'description' => 'Hello World!'));
         $this->db->insert('blogs', array('user_id' => $user->getId()));
     }
 }
