@@ -13,12 +13,14 @@
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
             $post = $this->posts_model->get_post($post_id);
+            set_title($post->getTitle());
             $this->load->view('blog/post', compact('blog', 'post'));
         }
 
         public function archive($username)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
+            set_title("Archive");
             $this->load->view('blog/archive', compact('blog'));
         }
 
@@ -38,6 +40,7 @@
         public function about($username)
         {
             $blog = $this->blogs_model->get_blog_by_username($username);
+            set_title("About");
             $this->load->view('blog/about', compact('blog'));
         }
     }

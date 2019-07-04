@@ -11,3 +11,13 @@ function dd( $data ){
     var_dump($data);
     echo '</pre>';
 }
+
+function set_title($title) {
+    $ci =& get_instance();
+    $ci->title = $title;
+}
+
+function get_title() {
+    $ci =& get_instance();
+    return $ci->title ?? null;
+}
